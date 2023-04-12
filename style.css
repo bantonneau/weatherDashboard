@@ -1,0 +1,31 @@
+#header {
+    background-color: rgb(67, 57, 75);
+    padding: 1%;
+    text-align: center;
+    color: white;
+}
+
+#search-column {
+    display: flex;
+}
+
+.container {
+    margin: 0.1vh 0vw 0.1vh 0vw;
+}
+
+#todaysWeatherContainer {
+    padding: 10px;
+    border-style: solid;
+    border-color: black;
+}
+
+#fiveDay {
+    display: flex;
+}
+
+.dayTile {
+    background-color: rgb(67, 57, 75);
+    color: white;
+    padding: 15px;
+    margin: 0.5vw;
+}
