@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var todaysDate = dayjs();
     $("#cityButton").click(function (event) {
         var formContent = $("#city").val();
         fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + formContent + '&limit=1&appid=a3ca7c6257bb748d4cf6def79e5d06d0')
@@ -13,6 +14,7 @@ $(document).ready(function() {
                         console.log(data);
                         console.log(data.list[0].main.feels_like);
                         for (let i = 0; i < 7; i++) {
+                            $('#day' + i + "weather").find('.date').text(todaysDate.add(i, "day").format('MM/DD/YYYY'));
                             $('#day' + i + "weather").find('.temp').text("Temp: " + ((data.list[i].main.feels_like - 273.15) * (9/5) + 32).toFixed(2) + " F°");
                             $('#day' + i + "weather").find('.wind').text("Wind: " + (data.list[i].wind.speed).toFixed(2) + " MPH");
                             $('#day' + i + "weather").find('.humid').text("Humidity: " + (data.list[i].main.humidity) + "%");
