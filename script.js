@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var todaysDate = dayjs();
     retrieveFromLocalStorage();
+    
+
     // Function to save an array to local storage
     function saveToLocalStorage(value) {
         const localStorageKey = "myArray";
@@ -35,6 +37,7 @@ $(document).ready(function () {
 
 
     $("#cityButton").click(function (event) {
+        $('.wIcon').css('display', 'block');
         var formContent = $("#city").val();
         saveToLocalStorage(formContent);
         retrieveFromLocalStorage();
@@ -52,6 +55,7 @@ $(document).ready(function () {
                         console.log(data.list[0].main.feels_like);
                         for (let i = 0; i < 7; i++) {
                             $('#day' + i + "weather").find('.date').text(todaysDate.add(i, "day").format('MM/DD/YYYY'));
+                            $('#day' + i + "weather").find('.wIcon').attr('src', "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                             $('#day' + i + "weather").find('.temp').text("Temp: " + ((data.list[i].main.feels_like - 273.15) * (9 / 5) + 32).toFixed(2) + " F°");
                             $('#day' + i + "weather").find('.wind').text("Wind: " + (data.list[i].wind.speed).toFixed(2) + " MPH");
                             $('#day' + i + "weather").find('.humid').text("Humidity: " + (data.list[i].main.humidity) + "%");
@@ -60,7 +64,8 @@ $(document).ready(function () {
             })
     });
 
-    $(document).on("click", ".historyButton", function(event) {
+    $(document).on("click", ".historyButton", function (event) {
+        $('.wIcon').css('display', 'block');
         var formContent = $(this).text();
         $("#cityDisplay").text(formContent);
         fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + formContent + '&limit=1&appid=a3ca7c6257bb748d4cf6def79e5d06d0')
@@ -76,6 +81,7 @@ $(document).ready(function () {
                         console.log(data.list[0].main.feels_like);
                         for (let i = 0; i < 7; i++) {
                             $('#day' + i + "weather").find('.date').text(todaysDate.add(i, "day").format('MM/DD/YYYY'));
+                            $('#day' + i + "weather").find('.wIcon').attr('src', "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                             $('#day' + i + "weather").find('.temp').text("Temp: " + ((data.list[i].main.feels_like - 273.15) * (9 / 5) + 32).toFixed(2) + " F°");
                             $('#day' + i + "weather").find('.wind').text("Wind: " + (data.list[i].wind.speed).toFixed(2) + " MPH");
                             $('#day' + i + "weather").find('.humid').text("Humidity: " + (data.list[i].main.humidity) + "%");

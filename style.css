@@ -39,3 +39,7 @@
 .historyButton {
     margin: 8px 0px;
 }
+
+.wIcon {
+    display: none;
+}
