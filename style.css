@@ -7,6 +7,12 @@
 
 #search-column {
     display: flex;
+    flex-direction: column;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -28,4 +34,8 @@
     color: white;
     padding: 15px;
     margin: 0.5vw;
+}
+
+.historyButton {
+    margin: 8px 0px;
 }
