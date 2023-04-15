@@ -49,7 +49,7 @@ $(document).ready(function () {
         // Update the city display text
         $("#cityDisplay").text(formContent);
         // Fetch the latitude and longitude for the entered city using the OpenWeatherMap API
-        fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + formContent + '&limit=1&appid=a3ca7c6257bb748d4cf6def79e5d06d0')
+        fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + formContent + '&limit=1&appid=a3ca7c6257bb748d4cf6def79e5d06d0')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -64,7 +64,7 @@ $(document).ready(function () {
                         // Update the weather display for the next 7 days
                         for (let i = 0; i < 7; i++) {
                             $('#day' + i + "weather").find('.date').text(todaysDate.add(i, "day").format('MM/DD/YYYY'));
-                            $('#day' + i + "weather").find('.wIcon').attr('src', "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
+                            $('#day' + i + "weather").find('.wIcon').attr('src', "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                             $('#day' + i + "weather").find('.temp').text("Temp: " + ((data.list[i].main.feels_like - 273.15) * (9 / 5) + 32).toFixed(2) + " F°");
                             $('#day' + i + "weather").find('.wind').text("Wind: " + (data.list[i].wind.speed).toFixed(2) + " MPH");
                             $('#day' + i + "weather").find('.humid').text("Humidity: " + (data.list[i].main.humidity) + "%");
@@ -80,7 +80,7 @@ $(document).ready(function () {
         var formContent = $(this).text();
         $("#cityDisplay").text(formContent);
         // Fetches the latitude and longitude coordinates of the city using the OpenWeatherMap API.
-        fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + formContent + '&limit=1&appid=a3ca7c6257bb748d4cf6def79e5d06d0')
+        fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + formContent + '&limit=1&appid=a3ca7c6257bb748d4cf6def79e5d06d0')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -95,7 +95,7 @@ $(document).ready(function () {
                         // Updates the HTML for each of the next 5 days in the forecast with the relevant weather information.
                         for (let i = 0; i < 7; i++) {
                             $('#day' + i + "weather").find('.date').text(todaysDate.add(i, "day").format('MM/DD/YYYY'));
-                            $('#day' + i + "weather").find('.wIcon').attr('src', "http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
+                            $('#day' + i + "weather").find('.wIcon').attr('src', "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png");
                             $('#day' + i + "weather").find('.temp').text("Temp: " + ((data.list[i].main.feels_like - 273.15) * (9 / 5) + 32).toFixed(2) + " F°");
                             $('#day' + i + "weather").find('.wind').text("Wind: " + (data.list[i].wind.speed).toFixed(2) + " MPH");
                             $('#day' + i + "weather").find('.humid').text("Humidity: " + (data.list[i].main.humidity) + "%");
