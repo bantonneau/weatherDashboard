@@ -12,5 +12,9 @@ This Weather Dashboard application allows you to search for a city and get curre
 ## Technologies used
 This Weather Dashboard application is built using HTML, CSS, and JavaScript, and it utilizes the OpenWeather API to retrieve weather data.
 
+## Preview
+<img width="1188" alt="image" src="https://user-images.githubusercontent.com/109747300/232174556-dcee9376-80cf-41cf-bf2a-7796ac182303.png">
+
+
 ## Credits
 This application was created by Ben Antonneau.
